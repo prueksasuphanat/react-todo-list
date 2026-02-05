@@ -1,13 +1,10 @@
 import { Search, Bell, Menu } from 'lucide-react'
+import dayjs from 'dayjs'
 
 function TopNavbar() {
-  const today = new Date()
-  const dayName = today.toLocaleDateString('en-US', { weekday: 'long' })
-  const dateString = today.toLocaleDateString('en-US', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  })
+  const today = dayjs()
+  const dayName = today.format('dddd')
+  const dateString = today.format('DD/MM/YYYY')
 
   return (
     <div className="bg-[#F8F8F8] flex items-center justify-between gap-4 px-4 py-4 sm:px-6 md:px-12 lg:px-16 xl:px-[72px] sm:py-6 md:pt-[37px] md:pb-[24px]">
