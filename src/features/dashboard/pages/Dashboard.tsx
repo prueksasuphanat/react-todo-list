@@ -1,12 +1,5 @@
-
-
 function Dashboard() {
-
-  return (
-    <>
-      dashboard
-    </>
-  )
+  return <>dashboard p1</>
 }
 
 export default Dashboard

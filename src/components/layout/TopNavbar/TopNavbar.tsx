@@ -1,10 +1,15 @@
+import { useState } from 'react'
 import { Search, Bell, Menu } from 'lucide-react'
 import dayjs from 'dayjs'
+import { CommonInput } from '@/components/common/Input'
+import { SearchOutlined } from '@ant-design/icons'
 
 function TopNavbar() {
   const today = dayjs()
   const dayName = today.format('dddd')
   const dateString = today.format('DD/MM/YYYY')
+
+  const [val, setVal] = useState('')
 
   return (
     <div className="bg-[#F8F8F8] flex items-center justify-between gap-4 px-4 py-4 sm:px-6 md:px-12 lg:px-16 xl:px-[72px] sm:py-6 md:pt-[37px] md:pb-[24px]">
@@ -16,14 +21,13 @@ function TopNavbar() {
       </div>
 
       <div className="relative hidden flex-1 max-w-md md:block">
-        <input
-          type="text"
-          placeholder="Search your task here..."
-          className="w-full rounded-lg border border-[#E5E7EB] py-2 pl-4 pr-10 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+        <CommonInput
+          value={val}
+          onChange={setVal}
+          enterButton={{
+            icon: <SearchOutlined />,
+          }}
         />
-        <button className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md bg-primary text-white hover:bg-primary-600">
-          <Search size={16} />
-        </button>
       </div>
 
       <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
