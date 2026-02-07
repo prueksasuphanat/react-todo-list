@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
   AppstoreOutlined,
   ExclamationCircleOutlined,
@@ -48,14 +49,28 @@ const items: MenuProps['items'] = [
 ]
 
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const getSelectedKey = () => {
+    console.log(location)
+    const path = location.pathname.split('/')[1] || 'dashboard'
+    return path
+  }
+
+  const onClick: MenuProps['onClick'] = (e) => {
+    const key = e.key
+    navigate(`/${key}`)
+  }
+
   return (
-    <Sider className="bg-transparent! h-full relative pt-[50px]">
-      <div className="bg-primary h-full rounded-r-[20px] rounded-b-none flex flex-col pt-[60px] relative">
+    <Sider width={300} className="bg-transparent! h-full relative pt-[50px]">
+      <div className="bg-primary h-full  rounded-r-[20px] rounded-b-none flex flex-col pt-[60px] relative">
         <div className="absolute -top-[40px] left-1/2 -translate-x-1/2 z-10">
           <Avatar
             size={80}
             icon={<UserOutlined />}
-            src="/path/to/avatar.jpg" // Replace with actual image source or keep icon
+            src="/path/to/avatar.jpg"
             style={{
               backgroundColor: '#ccc',
               border: '4px solid #fff',
@@ -73,9 +88,10 @@ const Sidebar: React.FC = () => {
 
         <Menu
           mode="inline"
-          defaultSelectedKeys={['dashboard']}
+          selectedKeys={[getSelectedKey()]}
           items={items}
-          className="bg-transparent!"
+          onClick={onClick}
+          className="bg-transparent! [&_.ant-menu-item-selected]:bg-white! [&_.ant-menu-item-selected]:text-primary! font-medium! [&_.ant-menu-item]:text-white!"
           style={{ padding: '0 21px' }}
         />
 
