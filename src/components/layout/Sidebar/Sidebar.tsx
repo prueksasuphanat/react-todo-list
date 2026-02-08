@@ -15,7 +15,7 @@ import type { MenuProps } from 'antd'
 
 const { Sider } = Layout
 
-const items: MenuProps['items'] = [
+export const items: MenuProps['items'] = [
   {
     key: 'dashboard',
     icon: <AppstoreOutlined />,
@@ -64,7 +64,10 @@ const Sidebar: React.FC = () => {
   }
 
   return (
-    <Sider width={300} className="bg-transparent! h-full relative pt-[50px]">
+    <Sider
+      width={300}
+      className="bg-transparent! h-full relative pt-[50px] hidden! md:block!"
+    >
       <div className="bg-primary h-full  rounded-r-[20px] rounded-b-none flex flex-col pt-[60px] relative">
         <div className="absolute -top-[40px] left-1/2 -translate-x-1/2 z-10">
           <Avatar

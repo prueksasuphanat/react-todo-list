@@ -1,5 +1,5 @@
 function MainLayout({ children }: { children: React.ReactNode }) {
-  return <div className="flex">{children}</div>
+  return <div className="">{children}</div>
 }
 
 export { MainLayout }

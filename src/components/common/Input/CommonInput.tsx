@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input, Button } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
+import { Search } from 'lucide-react'
 import { createStyles } from 'antd-style'
 
 interface EnterButtonConfig {
@@ -61,7 +61,8 @@ const CommonInput: React.FC<CommonInputProps> = ({
           placeholder={placeholder}
           allowClear
           onChange={handleChange}
-          className={styles.noHoverFocus}
+          className="h-[40px]"
+          classNames={styles.noHoverFocus}
           style={{
             width: '100%',
             backgroundColor: 'transparent',
@@ -76,14 +77,13 @@ const CommonInput: React.FC<CommonInputProps> = ({
             backgroundColor: disabled
               ? 'var(--color-gray-300)'
               : enterButton?.color || 'var(--color-primary)',
-            width: '10px',
+            width: '40px',
             borderRadius: '8px',
           }}
+          size="large"
           disabled={disabled}
         >
-          {enterButton?.icon || (
-            <SearchOutlined className="text-white text-lg" />
-          )}
+          {enterButton?.icon || <Search size={18} />}
         </Button>
       </div>
     )
