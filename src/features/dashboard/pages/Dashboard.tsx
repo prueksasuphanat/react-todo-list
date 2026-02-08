@@ -8,6 +8,9 @@ import {
 import AvatarGroup from '@/features/dashboard/components/AvatarGroup'
 import { UserRoundPlus } from 'lucide-react'
 
+// TODO: responsive ส่วน Welcome back, Suphanat
+// TODO: Component ของ Frame, TaskCard, CompletedTaskCard, Chart
+
 // Mock Data
 const todoTasks = [
   {
@@ -72,7 +75,7 @@ const completedTasks = [
   },
 ]
 
-const CircularProgress = ({
+const CircleChart = ({
   percentage,
   color,
   label,
@@ -238,17 +241,13 @@ function Dashboard() {
             </div>
 
             <div className="flex flex-wrap items-center justify-around gap-4 px-2">
-              <CircularProgress
-                percentage={84}
-                color="#22c55e"
-                label="Completed"
-              />
-              <CircularProgress
+              <CircleChart percentage={84} color="#22c55e" label="Completed" />
+              <CircleChart
                 percentage={46}
                 color="#3b82f6"
                 label="In Progress"
               />
-              <CircularProgress
+              <CircleChart
                 percentage={13}
                 color="#ef4444"
                 label="Not Started"
