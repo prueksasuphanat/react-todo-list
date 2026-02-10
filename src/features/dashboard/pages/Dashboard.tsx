@@ -1,10 +1,4 @@
-import {
-  ClipboardClock,
-  Plus,
-  MoreHorizontal,
-  LayoutList,
-  CheckSquare,
-} from 'lucide-react'
+import { ClipboardClock, Plus, MoreHorizontal } from 'lucide-react'
 import AvatarGroup from '@/features/dashboard/components/AvatarGroup'
 import { UserRoundPlus } from 'lucide-react'
 
